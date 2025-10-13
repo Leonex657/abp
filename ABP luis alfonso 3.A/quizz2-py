@@ -1,0 +1,169 @@
+import flet as ft
+
+def main(page: ft.Page):
+    page.title = "Proyecto ABP"
+    page.window_width = 520
+    page.window_height = 720
+
+    titulo = ft.Text("CPU", size=22, weight="bold")
+    texto = ft.Text("", size=18)
+    imagen = ft.Image(src="", width=280, height=180, fit=ft.ImageFit.CONTAIN, visible=False)
+    btn_reset = ft.ElevatedButton("Reiniciar", icon=ft.Icons.REFRESH, visible=False)
+
+    preguntas = [
+        {
+            "texto": "¿Cuál es la función principal de la ALU dentro de un microprocesador?",
+            "opciones": [
+                ("a) Gestionar la memoria", False),
+                ("b) Ejecutar operaciones aritméticas y lógicas", True),
+                ("c) Coordinar los registros internos", False),
+                ("d) Coordinar los registros internos", False),
+            ]
+        },
+        {
+            "texto": "¿La ALU se encuentra contenida dentro de qué otro componente más general?",
+            "opciones": [
+                ("a) GPU", False),
+                ("b) Unidad de Control", False),
+                ("c) Memoria RAM", False),
+                ("d) CPU", True),
+            ]
+        },
+        {
+            "texto": "¿Cuál es la responsabilidad principal de la Unidad de Control?",
+            "opciones": [
+                ("a) Realizar cálculos aritméticos", False),
+                ("b) Almacenar datos temporalmente", False),
+                ("c) Coordinar la ejecución correcta de instrucciones", True),
+                ("d) Dibujar gráficos en pantalla", False),
+            ]
+        },
+        {
+            "texto": "¿Qué otro componente siempre trabaja en conjunto con la Unidad de Control dentro de la CPU?",
+            "opciones": [
+                ("a) Disco duro", False),
+                ("b) ALU", True),
+                ("c) ROM", False),
+                ("d) Tarjeta de red", False),
+            ]
+        },
+        {
+            "texto": "¿Qué tipo de información almacenan los registros?",
+            "opciones": [
+                ("a) Información visual", False),
+                ("b) Información temporal durante la ejecución de instrucciones", True),
+                ("c) Configuraciones de hardware", False),
+                ("d) Datos almacenados permanentemente", False),
+            ]
+        },
+        {
+            "texto": "¿Dónde se encuentran físicamente los registros?",
+            "opciones": [
+                ("a) En la memoria RAM externa", False),
+                ("b) Dentro del disco duro", False),
+                ("c) Dentro de la CPU", True),
+                ("d) En la tarjeta gráfica", False),
+            ]
+        },
+        {
+            "texto": "¿Qué muestra el diagrama completo presentado al final del programa?",
+            "opciones": [
+                ("a) Cómo la GPU procesa imágenes", False),
+                ("b) Cómo los dispositivos de entrada y salida se conectan al CPU", False),
+                ("c) Cómo la CPU interactúa con memoria, entrada/salida y realiza procesamiento", True),
+                ("d) Cómo se programan videojuegos", False),
+            ]
+        },
+        {
+            "texto": "¿Quién coordina todas las operaciones dentro del CPU según el diagrama?",
+            "opciones": [
+                ("a) La memoria RAM", False),
+                ("b) Los registros", False),
+                ("c) La Unidad de Control", True),
+                ("d) El mouse y el teclado", False),
+            ]
+        },
+    ]
+
+    indice_actual = {"valor": -1}
+    botones_opciones = []
+
+    def ocultar_todos_los_botones():
+        for b in botones_opciones:
+            b.visible = False
+            b.on_click = None
+        btn_reset.visible = True
+
+    def mostrar_pregunta(indice):
+        if indice >= len(preguntas):
+            final_bueno()
+            return
+
+        pregunta = preguntas[indice]
+        texto.value = pregunta["texto"]
+        ocultar_todos_los_botones()
+
+        for i, (opcion_texto, es_correcta) in enumerate(pregunta["opciones"]):
+            b = botones_opciones[i]
+            b.text = opcion_texto
+            b.visible = True
+            b.on_click = on_correcta if es_correcta else on_incorrecta
+
+        page.update()
+
+    def comenzar_quiz(e):
+        indice_actual["valor"] = 0
+        mostrar_pregunta(indice_actual["valor"])
+
+    def on_correcta(e):
+        indice_actual["valor"] += 1
+        mostrar_pregunta(indice_actual["valor"])
+
+    def on_incorrecta(e):
+        final_malo()
+
+    def final_bueno():
+        texto.value = "🏆🎉 ¡Felicidades, completaste el quiz exitosamente!"
+        page.bgcolor = ft.Colors.GREEN
+        ocultar_todos_los_botones()
+        btn_reset.visible = True
+        page.update()
+
+    def final_malo():
+        texto.value = "💀☠️ Has fallado el quiz. Estudia más."
+        page.bgcolor = ft.Colors.RED
+        ocultar_todos_los_botones()
+        btn_reset.visible = True
+        page.update()
+
+    def on_reset(e):
+        page.bgcolor = None
+        indice_actual["valor"] = -1
+        texto.value = "¿Estás listo para comenzar el quiz sobre la CPU?"
+        ocultar_todos_los_botones()
+        btn_comenzar.visible = True
+        page.update()
+
+    # Crear botones (máximo 4 opciones por pregunta)
+    for _ in range(4):
+        btn = ft.ElevatedButton("Opción", visible=False)
+        botones_opciones.append(btn)
+
+    btn_comenzar = ft.ElevatedButton("Comenzar Quiz", on_click=comenzar_quiz)
+    btn_reset.on_click = on_reset
+
+    page.add(
+        ft.Column(
+            [titulo, texto, imagen]
+            + botones_opciones
+            + [btn_comenzar, btn_reset],
+            alignment=ft.MainAxisAlignment.START,
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+            spacing=16,
+            expand=True
+        )
+    )
+
+    on_reset(None)
+
+ft.app(target=main)

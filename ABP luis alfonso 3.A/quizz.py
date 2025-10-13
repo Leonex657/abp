@@ -1,0 +1,359 @@
+import flet as ft
+
+def main(page: ft.Page):
+    page.title = "Proyecto ABP"
+    page.window_width = 520
+    page.window_height = 720
+    
+    estado = {"actual": "inicio"}
+    
+    titulo = ft.Text("CPU", size=22, weight="bold")
+    texto = ft.Text("", size=18)
+    imagen = ft.Image(src="", width=280, height=180, fit=ft.ImageFit.CONTAIN, visible=False)
+
+    btn_si = ft.ElevatedButton("Si")
+
+    btn_a = ft.ElevatedButton("a) Gestionar la memoria")
+    btn_b = ft.ElevatedButton("b) Ejecutar operaciones aritméticas y lógicas")
+    btn_c = ft.ElevatedButton("c) Coordinar los registros internos")
+    btn_d = ft.ElevatedButton("c) Coordinar los registros internos")
+    #correctaB
+
+    btn_a1 = ft.ElevatedButton("a) GPU")
+    btn_b1 = ft.ElevatedButton("b) Unidad de Control")
+    btn_c1 = ft.ElevatedButton("c) Memoria RAM")
+    btn_d1 = ft.ElevatedButton("d) CPU")
+    #correctaD
+
+    btn_a2 = ft.ElevatedButton("a) Realizar cálculos aritméticos")
+    btn_b2 = ft.ElevatedButton("b) Almacenar datos temporalmente")
+    btn_c2 = ft.ElevatedButton("c) Coordinar la ejecución correcta de instrucciones")
+    btn_d2 = ft.ElevatedButton("d) Dibujar gráficos en pantalla")
+    #correctaC
+
+    btn_a3 = ft.ElevatedButton("a) Disco duro")
+    btn_b3 = ft.ElevatedButton("b) ALUv")
+    btn_c3 = ft.ElevatedButton("c) ROM")
+    btn_d3 = ft.ElevatedButton("d) Tarjeta de red")
+    #correctaB
+
+    btn_a4 = ft.ElevatedButton("a) Información visual")
+    btn_b4 = ft.ElevatedButton("b) Información temporal durante la ejecución de instrucciones")
+    btn_c4 = ft.ElevatedButton("c) Configuraciones de hardware")
+    btn_d4 = ft.ElevatedButton("d) Datos almacenados permanentemente")
+    #correctaB
+
+    btn_a5 = ft.ElevatedButton("a) En la memoria RAM externa")
+    btn_b5 = ft.ElevatedButton("b) Dentro del disco duro")
+    btn_c5 = ft.ElevatedButton("c) Dentro de la CPU")
+    btn_d5 = ft.ElevatedButton("d) En la tarjeta gráfica")
+    #correctaC
+
+    btn_a6 = ft.ElevatedButton("a) Cómo la GPU procesa imágenes")
+    btn_b6 = ft.ElevatedButton("b) Cómo los dispositivos de entrada y salida se conectan al CPUv")
+    btn_c6 = ft.ElevatedButton("c) Cómo la CPU interactúa con memoria, entrada/salida y realiza procesamiento")
+    btn_d6 = ft.ElevatedButton("d) Cómo se programan videojuegos")
+    #correctaC
+
+    btn_a7 = ft.ElevatedButton("a) La memoria RAM")
+    btn_b7 = ft.ElevatedButton("b) Los registros")
+    btn_c7 = ft.ElevatedButton("c) La Unidad de Control")
+    btn_d7 = ft.ElevatedButton("d) El mouse y el teclado")
+    #correctaC
+
+    on_correctas = btn_b, btn_d1, btn_c2, btn_b3, btn_b4, btn_c5, btn_c6, btn_c7
+
+    btn_reset = ft.ElevatedButton("Reiniciar", icon=ft.Icons.REFRESH)
+    botones = ft.Row([btn_a, btn_b, btn_c, btn_d, btn_si, btn_a1,btn_b1,btn_c1,btn_d1, btn_a2, btn_b2, btn_c2, btn_d2, btn_a3, btn_b3, btn_c3, btn_d3, btn_a4, btn_b4, btn_c4, btn_d4, btn_a5, btn_b5, btn_c5, btn_d5, btn_a6, btn_b6, btn_c6, btn_d6, btn_a7, btn_b7, btn_c7, btn_d7], alignment=ft.MainAxisAlignment.CENTER, spacing=20)
+    
+    def mostrar_inicio():
+        estado["actual"] = "inicio"
+        page.bgcolor = None
+        texto.value = "Estas listo para comenzar el quiz sobre la CPU?, si respondes correctamente pasaras a la siguiente pregunta, si fallas el quiz terminara."
+        btn_si.visible = True
+        btn_a.visible = False
+        btn_b.visible = False
+        btn_c.visible = False  
+        btn_d.visible = False
+        btn_a1.visible = False
+        btn_b1.visible = False 
+        btn_c1.visible = False
+        btn_d1.visible = False
+        btn_a2.visible = False
+        btn_b2.visible = False
+        btn_c2.visible = False
+        btn_d2.visible = False
+        btn_a3.visible = False
+        btn_b3.visible = False
+        btn_c3.visible = False
+        btn_d3.visible = False
+        btn_a4.visible = False
+        btn_b4.visible = False
+        btn_c4.visible = False
+        btn_d4.visible = False
+        btn_a5.visible = False
+        btn_b5.visible = False
+        btn_c5.visible = False
+        btn_d5.visible = False
+        btn_a6.visible = False
+        btn_b6.visible = False
+        btn_c6.visible = False
+        btn_d6.visible = False
+        btn_a7.visible = False
+        btn_b7.visible = False
+        btn_c7.visible = False
+        btn_d7.visible = False
+
+        
+        page.update()
+        
+    def a_pregunta2_si():
+        estado["actual"] = "p2_si"
+        texto.value = "¿Cuál es la función principal de la ALU dentro de un microprocesador?"
+        imagen.visible = False
+        btn_a.visible = True
+        btn_b.visible = True
+        btn_c.visible = True 
+        btn_d.visible = True
+        btn_si.visible = False
+        page.update()
+
+    def a_pregunta3_si():
+        estado["actual"] = "p3_si"
+        texto.value = "¿La ALU se encuentra contenida dentro de qué otro componente más general?"
+        imagen.visible = False
+        btn_a.visible = False
+        btn_b.visible = False
+        btn_c.visible = False
+        btn_d.visible = False
+        btn_a1.visible = True
+        btn_b1.visible = True
+        btn_c1.visible = True
+        btn_d1.visible = True
+
+        page.update()
+    
+    def a_pregunta4_si():
+        estado["actual"] = "p4_si"
+        texto.value = "¿Cuál es la responsabilidad principal de la Unidad de Control?"
+        imagen.visible = False
+        btn_a1.visible = False
+        btn_b1.visible = False 
+        btn_c1.visible = False
+        btn_d1.visible = False
+        btn_a2.visible = True
+        btn_b2.visible = True
+        btn_c2.visible = True
+        btn_d2.visible = True
+
+        page.update()
+        
+    def a_pregunta5_si():
+        estado["actual"] = "p5_si"
+        texto.value = "¿Qué otro componente siempre trabaja en conjunto con la Unidad de Control dentro de la CPU?"
+        imagen.visible = False
+        btn_a2.visible = False
+        btn_b2.visible = False
+        btn_c2.visible = False
+        btn_d2.visible = False
+        btn_a3.visible = True
+        btn_b3.visible = True
+        btn_c3.visible = True
+        btn_d3.visible = True
+
+        page.update()
+        
+    def a_pregunta6_si():
+        estado["actual"] = "p6_si"
+        texto.value = "¿Qué tipo de información almacenan los registros?"
+        imagen.visible = False
+        btn_a3.visible = False
+        btn_b3.visible = False
+        btn_c3.visible = False
+        btn_d3.visible = False
+        btn_a4.visible = True
+        btn_b4.visible = True
+        btn_c4.visible = True
+        btn_d4.visible = True
+        page.update()
+        
+    def a_pregunta7_si():
+        estado["actual"] = "p7_si"
+        texto.value = "¿Dónde se encuentran físicamente los registros?"
+        imagen.visible = False
+        btn_a4.visible = False
+        btn_b4.visible = False  
+        btn_c4.visible = False
+        btn_d4.visible = False
+        btn_a5.visible = True
+        btn_b5.visible = True
+        btn_c5.visible = True
+        btn_d5.visible = True
+        page.update()
+        
+    def a_pregunta8_si():
+        estado["actual"] = "p8_si"
+        texto.value = "¿Qué muestra el diagrama completo presentado al final del programa?"
+        imagen.visible = False
+        btn_a5.visible = False
+        btn_b5.visible = False
+        btn_c5.visible = False
+        btn_d5.visible = False
+        btn_a6.visible = True
+        btn_b6.visible = True
+        btn_c6.visible = True
+        btn_d6.visible = True
+        page.update()
+        
+    def a_pregunta9_si():
+        estado["actual"] = "p9_si"
+        texto.value = "¿Quién coordina todas las operaciones dentro del CPU según el diagrama?"
+        imagen.visible = False
+        btn_a6.visible = False
+        btn_b6.visible = False
+        btn_c6.visible = False
+        btn_d6.visible = False
+        btn_a7.visible = True
+        btn_b7.visible = True
+        btn_c7.visible = True
+        btn_d7.visible = True
+        page.update()
+        
+    def final_bueno():
+        estado["actual"] = "final_bueno"
+        texto.value = "🏆🎉Felicidades, has completado el quiz con éxito!"
+        page.bgcolor = ft.Colors.GREEN
+        btn_reset.visible = True
+        btn_a.visible = False
+        btn_b.visible = False
+        btn_c.visible = False  
+        btn_d.visible = False
+        btn_a1.visible = False
+        btn_b1.visible = False 
+        btn_c1.visible = False
+        btn_d1.visible = False
+        btn_a2.visible = False
+        btn_b2.visible = False
+        btn_c2.visible = False
+        btn_d2.visible = False
+        btn_a3.visible = False
+        btn_b3.visible = False
+        btn_c3.visible = False
+        btn_d3.visible = False
+        btn_a4.visible = False
+        btn_b4.visible = False
+        btn_c4.visible = False
+        btn_d4.visible = False
+        btn_a5.visible = False
+        btn_b5.visible = False
+        btn_c5.visible = False
+        btn_d5.visible = False
+        btn_a6.visible = False
+        btn_b6.visible = False
+        btn_c6.visible = False
+        btn_d6.visible = False
+        btn_a7.visible = False
+        btn_b7.visible = False
+        btn_c7.visible = False
+        btn_d7.visible = False
+
+        
+        page.update()
+        
+    
+    def final_malo():
+        estado["actual"] = "final_malo"
+        texto.value = "💀☠️Has fallado el quiz, estudia más."
+        page.bgcolor = ft.Colors.RED
+        btn_reset.visible = True
+        btn_a.visible = False
+        btn_b.visible = False
+        btn_c.visible = False  
+        btn_d.visible = False
+        btn_a1.visible = False
+        btn_b1.visible = False 
+        btn_c1.visible = False
+        btn_d1.visible = False
+        btn_a2.visible = False
+        btn_b2.visible = False
+        btn_c2.visible = False
+        btn_d2.visible = False
+        btn_a3.visible = False
+        btn_b3.visible = False
+        btn_c3.visible = False
+        btn_d3.visible = False
+        btn_a4.visible = False
+        btn_b4.visible = False
+        btn_c4.visible = False
+        btn_d4.visible = False
+        btn_a5.visible = False
+        btn_b5.visible = False
+        btn_c5.visible = False
+        btn_d5.visible = False
+        btn_a6.visible = False
+        btn_b6.visible = False
+        btn_c6.visible = False
+        btn_d6.visible = False
+        btn_a7.visible = False
+        btn_b7.visible = False
+        btn_c7.visible = False
+        btn_d7.visible = False
+        
+        page.update()
+        
+    def on_si(e):
+        if estado["actual"] == "inicio":
+            a_pregunta2_si()
+
+    
+    
+    def on_correctas(e):
+        if estado["actual"] == "p2_si":
+            a_pregunta3_si()
+        elif estado["actual"] == "p3_si":
+            a_pregunta4_si()
+        elif estado["actual"] == "p4_si":
+            a_pregunta5_si()
+        elif estado["actual"] == "p5_si":
+            a_pregunta6_si()
+        elif estado["actual"] == "p6_si":
+            a_pregunta7_si()
+        elif estado["actual"] == "p7_si":
+            a_pregunta8_si()
+        elif estado["actual"] == "p8_si":
+            a_pregunta9_si()
+        elif estado["actual"] == "p9_si":
+            final_bueno()
+
+    def on_no(e):
+        if estado["actual"] == "inicio":
+            final_malo()
+        elif estado["actual"] == "p2_si":
+            final_malo()
+        elif estado["actual"] == "p3_si":
+            final_malo()
+        elif estado["actual"] == "p4_si":
+            final_malo()
+        elif estado["actual"] == "p5_si":
+            final_malo()
+        elif estado["actual"] == "p6_si":
+            final_malo()
+        elif estado["actual"] == "p7_si":
+            final_malo()
+        elif estado["actual"] == "p8_si":
+            final_malo()
+
+
+    def on_reset(e):
+        mostrar_inicio()
+
+    btn_si.on_click = on_si
+    btn_a.on_click = on_correctas
+    btn_b.on_click = on_no
+    btn_reset.on_click = on_reset
+    botones_correctas = btn_b, btn_d1, btn_c2, btn_b3, btn_b4, btn_c5, btn_c6, btn_c7
+
+    page.add(ft.Column([titulo, texto, imagen, botones, btn_reset], alignment=ft.MainAxisAlignment.START, horizontal_alignment=ft.CrossAxisAlignment.CENTER, spacing=16, expand=True))
+    mostrar_inicio()
+    
+ft.app(target=main)
