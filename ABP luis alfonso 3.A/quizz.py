@@ -71,6 +71,8 @@ def main(page: ft.Page):
         page.bgcolor = None
         texto.value = "Estas listo para comenzar el quiz sobre la CPU?, si respondes correctamente pasaras a la siguiente pregunta, si fallas el quiz terminara."
         btn_si.visible = True
+        imagen.visible = True
+        imagen.src = "meme1.jpg"
         btn_a.visible = False
         btn_b.visible = False
         btn_c.visible = False  
@@ -110,7 +112,8 @@ def main(page: ft.Page):
     def a_pregunta2_si():
         estado["actual"] = "p2_si"
         texto.value = "¿Cuál es la función principal de la ALU dentro de un microprocesador?"
-        imagen.visible = False
+        imagen.visible = True
+        imagen.src = "meme2.jpg"
         btn_a.visible = True
         btn_b.visible = True
         btn_c.visible = True 
@@ -121,7 +124,8 @@ def main(page: ft.Page):
     def a_pregunta3_si():
         estado["actual"] = "p3_si"
         texto.value = "¿La ALU se encuentra contenida dentro de qué otro componente más general?"
-        imagen.visible = False
+        imagen.visible = True
+        imagen.src = "meme3.jpg"
         btn_a.visible = False
         btn_b.visible = False
         btn_c.visible = False
@@ -136,7 +140,8 @@ def main(page: ft.Page):
     def a_pregunta4_si():
         estado["actual"] = "p4_si"
         texto.value = "¿Cuál es la responsabilidad principal de la Unidad de Control?"
-        imagen.visible = False
+        imagen.visible = True
+        imagen.src = "meme4.jpg"
         btn_a1.visible = False
         btn_b1.visible = False 
         btn_c1.visible = False
@@ -151,7 +156,8 @@ def main(page: ft.Page):
     def a_pregunta5_si():
         estado["actual"] = "p5_si"
         texto.value = "¿Qué otro componente siempre trabaja en conjunto con la Unidad de Control dentro de la CPU?"
-        imagen.visible = False
+        imagen.visible = True
+        imagen.src = "meme5.jpg"
         btn_a2.visible = False
         btn_b2.visible = False
         btn_c2.visible = False
@@ -166,7 +172,8 @@ def main(page: ft.Page):
     def a_pregunta6_si():
         estado["actual"] = "p6_si"
         texto.value = "¿Qué tipo de información almacenan los registros?"
-        imagen.visible = False
+        imagen.visible = True
+        imagen.src = "meme6.jpg"
         btn_a3.visible = False
         btn_b3.visible = False
         btn_c3.visible = False
@@ -180,7 +187,8 @@ def main(page: ft.Page):
     def a_pregunta7_si():
         estado["actual"] = "p7_si"
         texto.value = "¿Dónde se encuentran físicamente los registros?"
-        imagen.visible = False
+        imagen.visible = True
+        imagen.src = "meme7.jpg"
         btn_a4.visible = False
         btn_b4.visible = False  
         btn_c4.visible = False
@@ -194,7 +202,8 @@ def main(page: ft.Page):
     def a_pregunta8_si():
         estado["actual"] = "p8_si"
         texto.value = "¿Qué muestra el diagrama completo presentado al final del programa?"
-        imagen.visible = False
+        imagen.visible = True  
+        imagen.src = "meme8.jpg"
         btn_a5.visible = False
         btn_b5.visible = False
         btn_c5.visible = False
@@ -208,7 +217,8 @@ def main(page: ft.Page):
     def a_pregunta9_si():
         estado["actual"] = "p9_si"
         texto.value = "¿Quién coordina todas las operaciones dentro del CPU según el diagrama?"
-        imagen.visible = False
+        imagen.visible = True
+        imagen.src = "meme9.jpg"
         btn_a6.visible = False
         btn_b6.visible = False
         btn_c6.visible = False
@@ -223,6 +233,8 @@ def main(page: ft.Page):
         estado["actual"] = "final_bueno"
         texto.value = "🏆🎉Felicidades, has completado el quiz con éxito!"
         page.bgcolor = ft.Colors.GREEN
+        imagen.visible = True
+        imagen.src = "bueno.jpg"
         btn_reset.visible = True
         btn_a.visible = False
         btn_b.visible = False
@@ -264,7 +276,9 @@ def main(page: ft.Page):
     def final_malo():
         estado["actual"] = "final_malo"
         texto.value = "💀☠️Has fallado el quiz, estudia más."
-        page.bgcolor = ft.Colors.RED
+        page.bgcolor = ft.Colors.RED_300
+        imagen.visible = True
+        imagen.src = "malo.jpg"
         btn_reset.visible = True
         btn_a.visible = False
         btn_b.visible = False
