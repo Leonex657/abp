@@ -32,7 +32,7 @@ def main(page: ft.Page):
     #correctaC
 
     btn_a3 = ft.ElevatedButton("a) Disco duro")
-    btn_b3 = ft.ElevatedButton("b) ALUv")
+    btn_b3 = ft.ElevatedButton("b) ALU")
     btn_c3 = ft.ElevatedButton("c) ROM")
     btn_d3 = ft.ElevatedButton("d) Tarjeta de red")
     #correctaB
@@ -50,7 +50,7 @@ def main(page: ft.Page):
     #correctaC
 
     btn_a6 = ft.ElevatedButton("a) Cómo la GPU procesa imágenes")
-    btn_b6 = ft.ElevatedButton("b) Cómo los dispositivos de entrada y salida se conectan al CPUv")
+    btn_b6 = ft.ElevatedButton("b) Cómo los dispositivos de entrada y salida se conectan al CPU")
     btn_c6 = ft.ElevatedButton("c) Cómo la CPU interactúa con memoria, entrada/salida y realiza procesamiento")
     btn_d6 = ft.ElevatedButton("d) Cómo se programan videojuegos")
     #correctaC
@@ -307,7 +307,7 @@ def main(page: ft.Page):
 
     
     
-    def on_correctas(e):
+    def on_bien(e):
         if estado["actual"] == "p2_si":
             a_pregunta3_si()
         elif estado["actual"] == "p3_si":
@@ -348,10 +348,49 @@ def main(page: ft.Page):
         mostrar_inicio()
 
     btn_si.on_click = on_si
-    btn_a.on_click = on_correctas
-    btn_b.on_click = on_no
     btn_reset.on_click = on_reset
-    botones_correctas = btn_b, btn_d1, btn_c2, btn_b3, btn_b4, btn_c5, btn_c6, btn_c7
+
+    btn_b.on_click = on_bien      # Pregunta 1 - correcta
+    btn_a.on_click = on_no
+    btn_c.on_click = on_no
+    btn_d.on_click = on_no
+
+    btn_d1.on_click = on_bien     # Pregunta 2 - correcta
+    btn_a1.on_click = on_no
+    btn_b1.on_click = on_no
+    btn_c1.on_click = on_no
+
+    btn_c2.on_click = on_bien     # Pregunta 3 - correcta
+    btn_a2.on_click = on_no
+    btn_b2.on_click = on_no
+    btn_d2.on_click = on_no
+
+    btn_b3.on_click = on_bien     # Pregunta 4 - correcta
+    btn_a3.on_click = on_no
+    btn_c3.on_click = on_no
+    btn_d3.on_click = on_no
+
+    btn_b4.on_click = on_bien     # Pregunta 5 - correcta
+    btn_a4.on_click = on_no
+    btn_c4.on_click = on_no
+    btn_d4.on_click = on_no
+
+    btn_c5.on_click = on_bien     # Pregunta 6 - correcta
+    btn_a5.on_click = on_no
+    btn_b5.on_click = on_no
+    btn_d5.on_click = on_no
+
+    btn_c6.on_click = on_bien     # Pregunta 7 - correcta
+    btn_a6.on_click = on_no
+    btn_b6.on_click = on_no
+    btn_d6.on_click = on_no
+
+    btn_c7.on_click = on_bien     # Pregunta 8 - correcta
+    btn_a7.on_click = on_no
+    btn_b7.on_click = on_no
+    btn_d7.on_click = on_no
+
+
 
     page.add(ft.Column([titulo, texto, imagen, botones, btn_reset], alignment=ft.MainAxisAlignment.START, horizontal_alignment=ft.CrossAxisAlignment.CENTER, spacing=16, expand=True))
     mostrar_inicio()
