@@ -23,3 +23,18 @@ La unidad de salida muestra los resultados del procesamiento realizado por la CP
 Es el medio mediante el cual la computadora comunica la información al usuario.
 
 🔎 Ejemplo: cuando obtienes el resultado de una operación en pantalla, se muestra gracias a un dispositivo de salida como el monitor.
+
+
+
+GALERIA VIDEOS
+🧠 Memoria principal
+
+"En mi concepción de la arquitectura de los computadores, la memoria principal constituye el almacén fundamental de todo el sistema. En ella deben residir, simultáneamente, tanto las instrucciones como los datos que serán procesados. Su función es garantizar que la unidad de procesamiento tenga acceso rápido y directo a la información necesaria para ejecutar cada operación. Sin esta memoria centralizada, el flujo ordenado de instrucciones sería imposible y el cálculo perdería coherencia y continuidad."
+
+⌨️ Unidad de entrada
+
+"Todo autómata computacional requiere un mecanismo mediante el cual pueda recibir información desde el exterior. La unidad de entrada cumple precisamente este papel: permite introducir en el sistema tanto datos como programas. Sin este puente entre el mundo humano y la máquina, el computador sería un ente aislado, incapaz de iniciar cualquier proceso operativo. La entrada es, por tanto, la puerta que conecta la lógica interna del sistema con las necesidades del usuario."
+
+🖥️ Unidad de salida
+
+"Una máquina de cálculo no tiene propósito si los resultados de sus operaciones permanecen confinados en su interior. La unidad de salida es el medio por el cual el sistema expresa hacia el exterior los valores que ha obtenido tras ejecutar un programa. En cierto sentido, es el reflejo visible del trabajo computacional. Su existencia permite cerrar el ciclo completo: el usuario ingresa datos, la máquina los procesa y luego exhibe los resultados de forma comprensible."
